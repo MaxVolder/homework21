@@ -1,15 +1,18 @@
-import React from 'react';
-import { Provider } from 'react-redux';
-import store from './elements/store'; // Підключаємо створений Redux store
-import PostPage from './elements/PostPage'; // Підключаємо компонент PostPage
+import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
+import MakePost from './pages/MakePost';
+import Posts from './pages/Posts';
 
 function App() {
   return (
-    <Provider store={store}>
-      <div className="App">
-        <PostPage />
-      </div>
-    </Provider>
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path="make" element={<MakePost />} />
+        <Route path="posts" element={<Posts />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
